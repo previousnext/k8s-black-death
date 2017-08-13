@@ -12,7 +12,7 @@ This tool comes from a long line of "container killer" projects.
 
 and now....
 
-**K8s Black Death***
+**K8s Black Death**
 
 ## How it works
 
