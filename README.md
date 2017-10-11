@@ -48,13 +48,9 @@ spec:
 
 ## Development
 
-### Principles
-
-* Code lives in the `workspace` directory
-
 ### Tools
 
-* **Dependency management** - https://getgb.io
+* **Dependency management** - https://github.com/golang/dep
 * **Build** - https://github.com/mitchellh/gox
 * **Linting** - https://github.com/golang/lint
 
@@ -64,8 +60,10 @@ spec:
 
 **Installing a new dependency**
 
+After adding to imports in codebase run:
+
 ```bash
-gb vendor fetch github.com/foo/bar
+dep ensure
 ```
 
 **Running quality checks**
