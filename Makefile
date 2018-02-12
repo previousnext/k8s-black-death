@@ -1,5 +1,7 @@
 #!/usr/bin/make -f
 
+export CGO_ENABLED=0
+
 PROJECT=github.com/previousnext/k8s-black-death
 
 # Builds the project
