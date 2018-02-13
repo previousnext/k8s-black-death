@@ -90,7 +90,7 @@ func killIngresses(clientset *kubernetes.Clientset, namespace string, now int64)
 			continue
 		}
 
-		if bd > now {
+		if bd < now {
 			log.Println("Deleting Ingress:", ing.Name)
 
 			err := clientset.ExtensionsV1beta1().Ingresses(ing.Namespace).Delete(ing.Name, &metav1.DeleteOptions{})
@@ -117,7 +117,7 @@ func killServices(clientset *kubernetes.Clientset, namespace string, now int64) 
 			continue
 		}
 
-		if bd > now {
+		if bd < now {
 			log.Println("Deleting Service:", svc.Name)
 
 			err := clientset.CoreV1().Services(svc.Namespace).Delete(svc.Name, &metav1.DeleteOptions{})
@@ -144,7 +144,7 @@ func killPods(clientset *kubernetes.Clientset, namespace string, now int64) erro
 			continue
 		}
 
-		if bd > now {
+		if bd < now {
 			log.Println("Deleting Pod:", pod.Name)
 
 			err := clientset.CoreV1().Pods(pod.Namespace).Delete(pod.Name, &metav1.DeleteOptions{})
@@ -171,7 +171,7 @@ func killReplicaSets(clientset *kubernetes.Clientset, namespace string, now int6
 			continue
 		}
 
-		if bd > now {
+		if bd < now {
 			log.Println("Deleting ReplicaSet:", set.Name)
 
 			err := clientset.ExtensionsV1beta1().ReplicaSets(set.Namespace).Delete(set.Name, &metav1.DeleteOptions{})
@@ -198,7 +198,7 @@ func killDeployments(clientset *kubernetes.Clientset, namespace string, now int6
 			continue
 		}
 
-		if bd > now {
+		if bd < now {
 			log.Println("Deleting Deployment:", dply.Name)
 
 			err := clientset.ExtensionsV1beta1().Deployments(dply.Namespace).Delete(dply.Name, &metav1.DeleteOptions{})
