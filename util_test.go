@@ -5,13 +5,15 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+
+        "github.com/previousnext/k8s-black-death/retention"
 )
 
 func TestGetBlackDeath(t *testing.T) {
 	val := int64(123456788)
 
 	bd, err := getBlackDeath(map[string]string{
-		Annotation: strconv.Itoa(int(val)),
+		retention.Annotation: strconv.Itoa(int(val)),
 	})
 	assert.Nil(t, err)
 
