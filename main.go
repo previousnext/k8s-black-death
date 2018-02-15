@@ -7,12 +7,12 @@ import (
 	"github.com/alecthomas/kingpin"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/client-go/kubernetes"
-	"k8s.io/client-go/pkg/api"
+	corev1 "k8s.io/api/core/v1"
 	"k8s.io/client-go/rest"
 )
 
 var (
-	namespace = kingpin.Flag("namespace", "Namespace to scan for environments").Default(api.NamespaceAll).OverrideDefaultFromEnvar("NAMESPACE").String()
+	namespace = kingpin.Flag("namespace", "Namespace to scan for environments").Default(corev1.NamespaceAll).OverrideDefaultFromEnvar("NAMESPACE").String()
 )
 
 func main() {
