@@ -9,11 +9,6 @@ import (
 const Annotation = "black-death.skpr.io"
 
 // Unix returns a unix string based on a retention period.
-func Unix(retention string) (string, error) {
-	duration, err := time.ParseDuration(retention)
-	if err != nil {
-		return "", err
-	}
-
+func Unix(duration time.Duration) (string, error) {
 	return strconv.FormatInt(time.Now().Local().Add(duration).Unix(), 10), nil
 }
